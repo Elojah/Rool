@@ -6,6 +6,4 @@ Projects are listed in config/.proj
 
 # Create new class
 Pattern:
-'''
-[src/directory/]ClassName[: parentAccess parentName, ...]
-"""
+```[src/directory/]ClassName[: parentAccess parentName, ...]```

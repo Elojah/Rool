@@ -1,0 +1,3 @@
+${PARENTS}
+# include "${CLASS_NAME}.hpp"
+^

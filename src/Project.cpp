@@ -15,7 +15,9 @@ Project::Project(std::string const &path) : Window() {
 	tmp = strdup(path.c_str());
 	_path = std::string(path);
 	_name = std::string(basename(tmp));
-	free(tmp);
+	if (tmp) {
+		free(tmp);
+	}
 	setTitle(_name);
 	setModules("./config/.modules");
 	initModules();

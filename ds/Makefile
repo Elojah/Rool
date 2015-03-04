@@ -12,25 +12,10 @@ SRC_EXT = .cpp
 RM = rm -rf
 
 #List classes here
-CLASS = main\
-		makeTemplates/UsualClass\
-		makeTemplates/UsualInterface\
-		makeTemplates/ReplaceClassName\
-		structParents/Menu\
-		structParents/Window\
-		menuLists/ClassList\
-		menuLists/MemberList\
-		GUI\
-		Boot\
-		Project\
-		SortItems\
-		ClassTemplate\
-		MemberTemplate\
-		ModuleFactory\
+CLASS = \
 
 #List interfaces here
-INTERFACE = IModule\
-			ITemplate\
+INTERFACE = \
 
 #Auto var
 SRC = $(addsuffix $(SRC_EXT), $(addprefix $(SRC_DIR)/, $(CLASS)))
@@ -43,9 +28,12 @@ CFLAGS =-MMD -Wall -Wextra -Werror -O3 -g -std=c++98
 LFLAGS =
 
 #Libs
-LIB_LOCAL = lib/parseStr lib/fileManip
-LIB_GLOBAL = curses menu parseStr fileManip
-LIB_OTHER =
+LIB_LOCAL = \
+
+LIB_GLOBAL = \
+
+LIB_OTHER = \
+
 LIBS += $(addsuffix /lib, $(addprefix -L, $(LIB_LOCAL)))
 LIBS += $(addprefix -l,$(LIB_GLOBAL))
 LIBS += $(LIB_OTHER)

@@ -20,7 +20,8 @@ INTERFACE = \
 #Auto var
 SRC = $(addsuffix $(SRC_EXT), $(addprefix $(SRC_DIR)/, $(CLASS)))
 OBJ = $(addsuffix .o, $(addprefix $(BUILD_DIR)/, $(CLASS)))
-LIBS = $(addprefix -L,$(LIB_DIR))
+LIBS =
+#$(addprefix -L,$(LIB_DIR))
 
 #Flags
 CFLAGS = -MMD -Wall -Wextra -Werror -O3 -g -std=c++98

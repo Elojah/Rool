@@ -44,7 +44,7 @@ LFLAGS =
 
 #Libs
 LIB_LOCAL = lib/parseStr lib/fileManip
-LIB_GLOBAL = curses menu parseStr fileManip
+LIB_GLOBAL = ncurses menu parseStr fileManip
 LIB_OTHER =
 LIBS += $(addsuffix /lib, $(addprefix -L, $(LIB_LOCAL)))
 LIBS += $(addprefix -l,$(LIB_GLOBAL))

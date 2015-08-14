@@ -1,10 +1,37 @@
-#include "GUI.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leeios <leeios@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/07/12 13:51:22 by leeios            #+#    #+#             */
+/*   Updated: 2015/08/13 14:17:16 by leeios           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ncurses.h>
 #include "Boot.hpp"
 
-int		main(void)
-{
-	GUI		ctx;
+void		exec(void) {
 	Boot	b;
+}
 
+int			main(int ac, char **av) {
+
+	(void)ac;
+	(void)av;
+
+	initscr();
+	clear();
+	noecho();
+	cbreak();
+	raw();
+	cbreak();
+	keypad(stdscr, TRUE);
+
+	exec();
+
+	endwin();
 	return (0);
 }

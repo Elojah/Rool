@@ -1,5 +1,17 @@
-#ifndef WINDOW_H
-# define WINDOW_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Window.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leeios <leeios@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/07/14 13:05:53 by leeios            #+#    #+#             */
+/*   Updated: 2015/08/10 17:35:43 by leeios           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WINDOW_HPP
+# define WINDOW_HPP
 
 # include <ncurses.h>
 # include <string>
@@ -9,23 +21,23 @@ class Window
 public:
 	Window(void);
 	Window(int, int, int, int);
-	~Window(void);
+	virtual ~Window(void);
 	WINDOW			*getWin(void) const;
 
 protected:
-	WINDOW			*win;
-	WINDOW			*user;
-	int					h;
-	int					w;
-	int					y;
-	int					x;
-	std::string			title;
+	WINDOW					*_win;
+	WINDOW					*_user;
+	int							_h;
+	int							_w;
+	int							_y;
+	int							_x;
+	std::string			_title;
 
-	std::string			readUser(void) const;
-	void				notifyUser(const std::string&) const;
-	void				setTitle(const std::string&);
+	const std::string			readUser(void) const;
+	void									notifyUser(const std::string&) const;
+	void									setTitle(const std::string&);
 private:
-	void				_setDefaultSize(void);
+	void									setDefaultSize(void);
 };
 
 #endif

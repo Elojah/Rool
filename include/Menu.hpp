@@ -1,15 +1,30 @@
-#ifndef MENU_H
-# define MENU_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Menu.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leeios <leeios@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/07/14 13:54:50 by leeios            #+#    #+#             */
+/*   Updated: 2015/08/10 20:30:40 by leeios           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MENU_HPP
+# define MENU_HPP
 
 # define MAX_ITEMS 256
+
+# define UP 'z'
+# define DOWN 's'
+# define SELECT 10
+# define ESC 27
 
 # include "Window.hpp"
 # include <menu.h>
 # include <string>
 # include <vector>
 # include <map>
-
-class SortItems;
 
 class Menu : public Window
 {
@@ -18,24 +33,24 @@ public:
 
 	Menu(void);
 	Menu(int, int, int, int);
-	~Menu(void);
+	virtual ~Menu(void);
 
-	void			waitUser(void);
+	void			userInput(void);
 
 protected:
 	typedef void	(Menu::*Callback)(ITEM *);
 	typedef std::map<ITEM *, Callback> Items;
-	typedef std::map<std::string, std::vector<std::map<std::string, std::string> > >	loopMap;
+	// typedef std::map<std::string, std::vector<std::map<std::string, std::string> > >	loopMap;
 
-	MENU							*menu;
-	WINDOW						*winMenu;
+
+	MENU							*_menu;
+	WINDOW						*_winMenu;
 	/*Item map for callback*/
-	Items							items;
+	Items							_items;
 	/*Final Items*/
-	ITEM							*menuItems[MAX_ITEMS];
-	SortItems						*sortObject;
+	ITEM							*_menuItems[MAX_ITEMS];
 
-	void				simpleCreate(const std::string&, const std::string&, const std::string&);
+	void				simpleCreate(const std::string&);
 	void				loop(void);
 	void				reset(void);
 	void				createMenu(void);
@@ -50,10 +65,14 @@ protected:
 	/*
 	**Util
 	*/
-	void				addItem(const std::string&, Callback);
-	virtual void			sortMenu(size_t length);
+	void							addItem(const std::string&, Callback);
+
 private:
-	virtual void			createItems(void){}
+	/*
+	**OVERLOAD ME !
+	*/
+	virtual void			sortItems(const int &length) = 0;
+	virtual void			createItems(void) = 0;
 };
 
 #endif

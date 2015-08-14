@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IModule.hpp                                        :+:      :+:    :+:   */
+/*   ICommand.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leeios <leeios@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/10 17:40:31 by leeios            #+#    #+#             */
-/*   Updated: 2015/08/10 20:24:17 by leeios           ###   ########.fr       */
+/*   Created: 2015/08/12 11:47:36 by leeios            #+#    #+#             */
+/*   Updated: 2015/08/13 20:00:15 by leeios           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef I_MODULE_HPP
-# define I_MODULE_HPP
+#ifndef I_COMMAND_HPP
+# define I_COMMAND_HPP
 
 # include <string>
 
-class IModule
+class ICommand
 {
-public:
-	virtual ~IModule(void) {}
-	virtual void		construct(const std::string &path, const std::string &name) = 0;
+	public:
+		virtual ~ICommand(void) {}
+		virtual bool								adhere(const std::string &strCmd) const = 0;
+		virtual const std::string		exec(const std::string &strCmd) const = 0;
+	protected:
+	private:
 };
 
 #endif
